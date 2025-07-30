@@ -1,7 +1,13 @@
 # Arduino-keyboard-for-TRS-80-M2
+
+
 The TRS-80 Model II keyboard is rather bulky and occupies a lot of desk space. Sometime you even do not have a proper working keyboard.
 This project describes a solution where you use Putty running on a Windows or Linux computer connected to an Arduino as the keyboard replacement for a TRS-80 Model II.
 The models 16 and 16B use the same keyboard hardware.
+
+![PXL_20250730_233510440](https://github.com/user-attachments/assets/38e45ba9-abd1-4610-a2d1-7861c1418159)
+
+
 This project can also be used for the Model 12 & 6000.
 Please note that the pins on the keyboard connector of these computers are different from the Model II !!
 
@@ -31,9 +37,17 @@ The smallest Arduino I could find was good enough (without additional circuitry)
 Arduine used: Arduino Nano
 Processor: ATmega 168
 
+![PXL_20250405_215118642](https://github.com/user-attachments/assets/7eec2c83-32c4-4d01-a011-8550477db702)
+
+
 When building the Arduino into a small enclosure you might want to add and extra push button for the reset (temporarely connect to ground), and an additional led with resistor 220 ohms connected from D13 to ground. 
 
-<img width="401" height="327" alt="{FC25F510-9D60-4017-9BB4-9CB57B914170}" src="https://github.com/user-attachments/assets/979fee4e-997e-4c6e-9551-89439e7df903" />
+![PXL_20250730_235437690 NIGHT](https://github.com/user-attachments/assets/026540a4-2391-4acd-8c78-d64c4d319a53)
+
+
+![PXL_20250730_202815362](https://github.com/user-attachments/assets/b4b0e0d9-66c4-4043-8b78-8d2a7726f5ef)
+
+I used a momentary on switch with embedded led on top of the little enclosure.
 
 
 
