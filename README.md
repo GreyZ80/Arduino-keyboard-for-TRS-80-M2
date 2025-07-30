@@ -1,6 +1,9 @@
 # Arduino-keyboard-for-TRS-80-M2
 The TRS-80 Model II keyboard is rather bulky and occupies a lot of desk space. Sometime you even do not have a proper working keyboard.
 This project describes a solution where you use Putty running on a Windows or Linux computer connected to an Arduino as the keyboard replacement for a TRS-80 Model II.
+The models 16 and 16B use the same keyboard hardware.
+This project can also be used for the Model 12 & 6000.
+Please note that the pins on the keyboard connector of these computers are different from the Model II !!
 
 
 **Functions**
@@ -20,15 +23,18 @@ When starting up (or after pressing reset on the Arduino) a welcome text will be
 This message can also be triggered by typing Cntrl-t.
 
 When in normal operation, the build-in led blinks briefly every 8 second.
-When the Model II is not connected or powered off the build-in led blinks fast at 4 Hertz to indicate an abnormal situation.
+When the Model II is not connected or powered off the built-in led blinks fast at 4 Hertz to indicate an abnormal situation.
 
 **Hardware**
 
-The smallest Arduino I could find does this job. without additional circuitry. You only need to add a 5 pin 180 degrees DIN female connector.
+The smallest Arduino I could find was good enough (without additional circuitry). You only essentially need to add a 5 pin 180 degrees DIN female connector.
 Arduine used: Arduino Nano
 Processor: ATmega 168
 
-When building the Arduino into a small enclosure you might want to add and extra push button for the reset, and an addition led 
+When building the Arduino into a small enclosure you might want to add and extra push button for the reset (temporarely connect to ground), and an additional led with resistor 220 ohms connected from D13 to ground. 
+
+<img width="401" height="327" alt="{FC25F510-9D60-4017-9BB4-9CB57B914170}" src="https://github.com/user-attachments/assets/979fee4e-997e-4c6e-9551-89439e7df903" />
+
 
 
 The pins of the connector are linked to the Arduino in the following manner:
@@ -46,11 +52,9 @@ Additional signals:
 
 | function | Arduino Nano |
 | -- | -- |
-| Same as build-in led | D13 |
+| Same as built-in led | D13 |
 | Reset line | RST |
 
-This project can also be used for the Model 12 & 6000.
-Please note that the pins on the keyboard connector of these computers are different from the Model II !!
 
 **Background information**
 
