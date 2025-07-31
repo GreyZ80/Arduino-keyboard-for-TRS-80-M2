@@ -3,12 +3,12 @@
 
 The TRS-80 Model II keyboard is rather bulky and occupies a lot of desk space. Sometime you even do not have a proper working keyboard.
 This project describes a solution where you use Putty running on a Windows or Linux computer connected to an Arduino as the keyboard replacement for a TRS-80 Model II.
-The models 16 and 16B use the same keyboard hardware.
+The model 16 uses the same keyboard hardware (keyboard without cable).
 
 ![PXL_20250730_233510440](https://github.com/user-attachments/assets/38e45ba9-abd1-4610-a2d1-7861c1418159)
 
 
-This project can also be used for the Model 12 & 6000.
+This project can also be used for the Models 12, 16B & 6000. These models use a keyboard with cable.
 Please note that the pins on the keyboard connector of these computers are different from the Model II !!
 
 
@@ -19,7 +19,7 @@ Arrow keys on the computer keyboard are translated into the Model II keyboard co
 Backspace is translated to the correct code for the Model II.
 Function keys F1 ~ F8 are translated into the proper codes for function keys of the Model II and Model 12.
 Function key F9 is translated into the BREAK code (03)
-Function key F10 is translated into the HOLD code (00). When pressed, the messahe [HOLD] will be shown of the Putty screen.
+Function key F10 is translated into the HOLD code (00). When pressed, the message [HOLD] will be shown of the Putty screen.
 
 Each key typed is echoed to the Putty terminal as well. Also the led on the arduino will light up.
 The BUSY* line coming from the Model II is not used to wait until the Model II is ready to receive a key. The Model II is much faster than the typist. 
@@ -30,6 +30,8 @@ This message can also be triggered by typing Cntrl-t.
 
 When in normal operation, the build-in led blinks briefly every 8 second.
 When the Model II is not connected or powered off the built-in led blinks fast at 4 Hertz to indicate an abnormal situation.
+In this situation the Arduino will still transmit characters using the DIN connection. It does not check the BUSY* line.
+This allows checking of the workings with a Tandy computer connected. 
 
 **Hardware**
 
@@ -72,7 +74,18 @@ Additional signals:
 
 **Background information**
 
-Detailed nformation on the keyboard interface can be found in the Model II technical reference manual. Essential is the timing relationship between the DATA and CLOCK signals.
-The exact frequency of the CLOCK signal is not critical. The tinming is determined by the value of the QuarterPulse.
-The signals are created in 4 parts where the signal level for the DataBit and ClockBit are set high or low. After sending the data the stop bit is transmitted
+Detailed information on the keyboard interface can be found in the Model II technical reference manual. Essential is the timing relationship between the DATA and CLOCK signals.
+
+<img width="1276" height="647" alt="Keyboard timing diagram" src="https://github.com/user-attachments/assets/6c5b35c3-feb5-4467-a511-fb046971d69c" />
+
+
+The exact frequency of the CLOCK signal is not critical. The timing is determined by the value of the QuarterPulse.
+The signals are created in 4 parts where the signal level for the DataBit and ClockBit are set high or low. After sending the data the stop bit is transmitted.
+The current code gives pulse width of about 40 micro seconds.
+
+HERE SCREENSHOT 
+
+**Note**
+
+During startup, the Tandy computer might detect one or two spurious keystrokes. Possibly caused by the fact that the Arduino is initialising. I have not been able to fix this.
 
