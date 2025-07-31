@@ -88,6 +88,8 @@ Additional signals:
 
 ## Putty settings
 
+<!-- SCREENSHOTS NEEDED -->
+
 To work correctly, Putty emulation must be set to VT100+ mode. Otherwise the function keys do not work correctly.
 Local echo should be off.
 On a Windows PC, the OS might assign a differt serial port to the USB connection to the Arduino. On my system this is normaly port 6 or 7. The system manager will show which port is used.
