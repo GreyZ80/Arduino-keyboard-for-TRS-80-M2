@@ -1,8 +1,19 @@
 # Arduino-keyboard-for-TRS-80-M2
+
+## Table of Contents
+- [Introduction](#introduction)
+- [Functions](#functions)
+- [Hardware](#hardware)
+- [Putty settings](#putty-settings)
+- [Background information](#background-information)
+- [Notes](#notes)
+
+
 ## Introduction
 
 The TRS-80 Model II keyboard is rather bulky and occupies a lot of desk space. Sometime you even do not have a proper working keyboard.
-This project describes a solution where you use Putty running on a Windows or Linux computer connected to an Arduino as the keyboard replacement for a TRS-80 Model II.
+This project describes a solution where you use Putty running on a Windows or Linux computer to an Arduino as the keyboard replacement for a TRS-80 Model II.
+Connection is by means of a USB cable.
 
 <img width="300"  src="https://github.com/user-attachments/assets/38e45ba9-abd1-4610-a2d1-7861c1418159" />
 
@@ -91,7 +102,7 @@ The exact frequency of the CLOCK signal is not critical. The timing is determine
 The signals are created in 4 parts where the signal level for the DataBit and ClockBit are set high or low. After sending the data the stop bit is transmitted.
 The current code gives pulse width of about 40 micro seconds.
 
-HERE SCREENSHOT 
+<!-- HERE SCREENSHOT of the signals --> 
 
 ## Notes
 
