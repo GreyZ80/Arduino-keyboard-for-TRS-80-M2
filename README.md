@@ -45,10 +45,10 @@ These boards are available with different USB connectors. I have used mini USB f
 <BR><BR>
 
 >[!CAUTION]
-> **As the Arduino receives power via USB from the Windows or Linux PC, the 5 Volt from the Tandy computer must NOT be connected to the Arduino. Doing this anyway might damage the PC, the Arduino or the Tandy computer**
+> **As the Arduino receives power via USB from the Windows or Linux PC, the 5 Volt from the Tandy computer must NOT be connected to the Arduino. Doing this anyway might damage the PC, the Arduino and/or the Tandy computer!**
 
 
-When building the Arduino into a small enclosure you might want to add and extra push button for the reset (temporarely connect to ground), and an additional led with resistor 220 ohms connected from D13 to ground. 
+When building the Arduino into a small enclosure you might want to add and extra push button for the reset (temporarely connect to ground), and an additional led with resistor (e.g. 220 ohms) connected from D13 to ground. 
 
 <img width="300"  src="https://github.com/user-attachments/assets/b4b0e0d9-66c4-4043-8b78-8d2a7726f5ef" />
 <img width="300"  src="https://github.com/user-attachments/assets/026540a4-2391-4acd-8c78-d64c4d319a53" />
