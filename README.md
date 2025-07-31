@@ -5,14 +5,14 @@ The TRS-80 Model II keyboard is rather bulky and occupies a lot of desk space. S
 This project describes a solution where you use Putty running on a Windows or Linux computer connected to an Arduino as the keyboard replacement for a TRS-80 Model II.
 The model 16 uses the same keyboard hardware (keyboard without cable).
 
-![PXL_20250730_233510440](https://github.com/user-attachments/assets/38e45ba9-abd1-4610-a2d1-7861c1418159)
+<img width="300"  src="https://github.com/user-attachments/assets/38e45ba9-abd1-4610-a2d1-7861c1418159" />
 
 
 This project can also be used for the Models 12, 16B & 6000. These models use a keyboard with cable.
 Please note that the pins on the keyboard connector of these computers are different from the Model II !!
 
 
-**Functions**
+## Functions
 
 All standard keys are transferred to the Model II.
 Arrow keys on the computer keyboard are translated into the Model II keyboard code.
@@ -33,21 +33,19 @@ When the Model II is not connected or powered off the built-in led blinks fast a
 In this situation the Arduino will still transmit characters using the DIN connection. It does not check the BUSY* line.
 This allows checking of the workings with a Tandy computer connected. 
 
-**Hardware**
+## Hardware
 
 The smallest Arduino I could find was good enough (without additional circuitry). You only essentially need to add a 5 pin 180 degrees DIN female connector.
 Arduine used: Arduino Nano
 Processor: ATmega 168
 
-![PXL_20250405_215118642](https://github.com/user-attachments/assets/7eec2c83-32c4-4d01-a011-8550477db702)
+<img width="300" alt="click to enlarge" src="https://github.com/user-attachments/assets/7eec2c83-32c4-4d01-a011-8550477db702" />
 
 
 When building the Arduino into a small enclosure you might want to add and extra push button for the reset (temporarely connect to ground), and an additional led with resistor 220 ohms connected from D13 to ground. 
 
-![PXL_20250730_235437690 NIGHT](https://github.com/user-attachments/assets/026540a4-2391-4acd-8c78-d64c4d319a53)
-
-
-![PXL_20250730_202815362](https://github.com/user-attachments/assets/b4b0e0d9-66c4-4043-8b78-8d2a7726f5ef)
+<img width="300"  src="https://github.com/user-attachments/assets/b4b0e0d9-66c4-4043-8b78-8d2a7726f5ef" />
+<img width="300"  src="https://github.com/user-attachments/assets/026540a4-2391-4acd-8c78-d64c4d319a53" />
 
 I used a momentary on switch with embedded led on top of the little enclosure.
 
@@ -71,13 +69,16 @@ Additional signals:
 | Same as built-in led | D13 |
 | Reset line | RST |
 
+## Putty settings
 
-**Background information**
+To work correctly, Putty must be set in VT100+ mode.
+Local echo should be off
+
+## Background information
 
 Detailed information on the keyboard interface can be found in the Model II technical reference manual. Essential is the timing relationship between the DATA and CLOCK signals.
 
-<img width="1276" height="647" alt="Keyboard timing diagram" src="https://github.com/user-attachments/assets/6c5b35c3-feb5-4467-a511-fb046971d69c" />
-
+<img width="900"  alt="Keyboard timing diagram" src="https://github.com/user-attachments/assets/6c5b35c3-feb5-4467-a511-fb046971d69c" />
 
 The exact frequency of the CLOCK signal is not critical. The timing is determined by the value of the QuarterPulse.
 The signals are created in 4 parts where the signal level for the DataBit and ClockBit are set high or low. After sending the data the stop bit is transmitted.
@@ -85,7 +86,8 @@ The current code gives pulse width of about 40 micro seconds.
 
 HERE SCREENSHOT 
 
-**Note**
+## Notes
 
 During startup, the Tandy computer might detect one or two spurious keystrokes. Possibly caused by the fact that the Arduino is initialising. I have not been able to fix this.
+
 
