@@ -14,21 +14,22 @@ Please note that the pins on the keyboard connector of these computers are diffe
 
 ## Functions
 
-All standard keys are transferred to the Model II.
-Arrow keys on the computer keyboard are translated into the Model II keyboard code.
-Backspace is translated to the correct code for the Model II.
-Function keys F1 ~ F8 are translated into the proper codes for function keys of the Model II and Model 12.
-Function key F9 is translated into the BREAK code (03)
-Function key F10 is translated into the HOLD code (00). When pressed, the message [HOLD] will be shown of the Putty screen.
+* All standard keys are transferred to the Model II.
+* Each key typed is echoed to the Putty terminal as well. Also the built-in led on the arduino will light up.
+* Arrow keys on the computer keyboard are translated into the Model II keyboard code.
+* Backspace is translated to the correct code for the Model II.
+* Function keys F1 ~ F8 are translated into the proper codes for function keys of the Model II and Model 12.
+* Function key F9 is translated into the BREAK code (03)
+* Function key F10 is translated into the HOLD code (00). When pressed, the message [HOLD] will be shown of the Putty screen.
 
-Each key typed is echoed to the Putty terminal as well. Also the led on the arduino will light up.
+* The line is monitored anyway to detect the presence of a powered on Model II. When the Model II is not connected, or powered down, the led will blink fast.
+
 The BUSY* line coming from the Model II is not used to wait until the Model II is ready to receive a key. The Model II is much faster than the typist. 
-The line is monitored anyway to detect the presence of a powered on Model II. When the Model II is not connected, or powered down, the led will blink fast.
 
 When starting up (or after pressing reset on the Arduino) a welcome text will be printed on the Putty screen. This will also show the status of the Model II.
 This message can also be triggered by typing Cntrl-t.
 
-When in normal operation, the build-in led blinks briefly every 8 second.
+During normal operation, the build-in led blinks briefly every 8 second.
 When the Model II is not connected or powered off the built-in led blinks fast at 4 Hertz to indicate an abnormal situation.
 In this situation the Arduino will still transmit characters using the DIN connection. It does not check the BUSY* line.
 This allows checking of the workings with a Tandy computer connected. 
@@ -38,8 +39,13 @@ This allows checking of the workings with a Tandy computer connected.
 The smallest Arduino I could find was good enough (without additional circuitry). You only essentially need to add a 5 pin 180 degrees DIN female connector.
 Arduine used: Arduino Nano
 Processor: ATmega 168
+These boards are available with different USB connectors. I have used mini USB for my unit.
 
 <img width="300" alt="click to enlarge" src="https://github.com/user-attachments/assets/7eec2c83-32c4-4d01-a011-8550477db702" />
+<BR><BR>
+
+>[!CAUTION]
+> **As the Arduino receives power via USB from the Windows or Linux PC, the 5 Volt from the Tandy computer must NOT be connected to the Arduino. Doing this anyway might damage the PC, the Arduino or the Tandy computer**
 
 
 When building the Arduino into a small enclosure you might want to add and extra push button for the reset (temporarely connect to ground), and an additional led with resistor 220 ohms connected from D13 to ground. 
@@ -60,11 +66,11 @@ The pins of the connector are linked to the Arduino in the following manner:
 | 2  BUSY* | 3 BUSY* | D2 |
 | 3  Gnd | 5 Gnd | Gnd |
 | 4  CLOCK | 2 CLOCK | D3 |
-| 5  +5V | NOT USED | NOT USED |
+| 5  +5V | 4 +5V | NOT USED |
 
 Additional signals:
 
-| function | Arduino Nano |
+| Function | Arduino Nano |
 | -- | -- |
 | Same as built-in led | D13 |
 | Reset line | RST |
@@ -72,7 +78,8 @@ Additional signals:
 ## Putty settings
 
 To work correctly, Putty must be set in VT100+ mode.
-Local echo should be off
+Local echo should be off.
+On a Windows PC, the OS might assign a differt serial port to the USB connection to the Arduino. On my system this is normaly port 6 or 7. The system manager will show which port is used.
 
 ## Background information
 
