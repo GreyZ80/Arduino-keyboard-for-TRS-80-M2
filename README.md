@@ -1,19 +1,19 @@
 # Arduino-keyboard-for-TRS-80-M2
-
+## Introduction
 
 The TRS-80 Model II keyboard is rather bulky and occupies a lot of desk space. Sometime you even do not have a proper working keyboard.
 This project describes a solution where you use Putty running on a Windows or Linux computer connected to an Arduino as the keyboard replacement for a TRS-80 Model II.
-The model 16 uses the same keyboard hardware (keyboard without cable).
 
 <img width="300"  src="https://github.com/user-attachments/assets/38e45ba9-abd1-4610-a2d1-7861c1418159" />
 
-
+The model 16 uses the same keyboard hardware (keyboard without cable).
 This project can also be used for the Models 12, 16B & 6000. These models use a keyboard with cable.
 Please note that the pins on the keyboard connector of these computers are different from the Model II !!
 
 
 ## Functions
 
+The following features are embedded in the unit. By changing the Arduino code, customisation can be performed.
 * All standard keys are transferred to the Model II.
 * Each key typed is echoed to the Putty terminal as well. Also the built-in led on the arduino will light up.
 * Arrow keys on the computer keyboard are translated into the Model II keyboard code.
@@ -22,7 +22,7 @@ Please note that the pins on the keyboard connector of these computers are diffe
 * Function key F9 is translated into the BREAK code (03)
 * Function key F10 is translated into the HOLD code (00). When pressed, the message [HOLD] will be shown of the Putty screen.
 
-* The line is monitored anyway to detect the presence of a powered on Model II. When the Model II is not connected, or powered down, the led will blink fast.
+* The BUSY* line coming from the Model II is monitored to detect the presence of a powered on Model II. When the Model II is not connected, or powered down, the led will blink fast.
 
 The BUSY* line coming from the Model II is not used to wait until the Model II is ready to receive a key. The Model II is much faster than the typist. 
 
@@ -95,6 +95,6 @@ HERE SCREENSHOT
 
 ## Notes
 
-During startup, the Tandy computer might detect one or two spurious keystrokes. Possibly caused by the fact that the Arduino is initialising. I have not been able to fix this.
-
+- During startup, the Tandy computer might detect one or two spurious keystrokes. Possibly caused by the fact that the Arduino is initialising. I have not been able to fix this.
+- It is not absolutely necessary to use Putty. Other software that can communicate with USB as serial port can work. However, many programs I found will only transmit the characters to the Arduino after hitting [enter]. That might not always be practical.
 
