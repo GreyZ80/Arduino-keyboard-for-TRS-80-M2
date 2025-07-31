@@ -18,7 +18,7 @@ All standard keys are transferred to the Model II.
 Arrow keys on the computer keyboard are translated into the Model II keyboard code.
 Backspace is translated to the correct code for the Model II.
 Function keys F1 ~ F8 are translated into the proper codes for function keys of the Model II and Model 12.
-Function key F9 is translated into the BREAK code
+Function key F9 is translated into the BREAK code (03)
 Function key F10 is translated into the HOLD code (00). When pressed, the messahe [HOLD] will be shown of the Putty screen.
 
 Each key typed is echoed to the Putty terminal as well. Also the led on the arduino will light up.
