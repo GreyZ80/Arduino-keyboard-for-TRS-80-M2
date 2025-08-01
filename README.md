@@ -7,12 +7,13 @@
 - [Putty settings](#putty-settings)
 - [Background information](#background-information)
 - [Notes](#notes)
+- [About me](#about-me)
 
 
 ## Introduction
 
 The TRS-80 Model II keyboard is rather bulky and occupies a lot of desk space. Sometime you even do not have a proper working keyboard.
-This project describes a solution where you use Putty running on a Windows or Linux computer to an Arduino as the keyboard replacement for a TRS-80 Model II.
+This project describes a solution where you use Putty running on a Windows or Linux computer with an Arduino as keyboard replacement for a TRS-80 Model II.
 Connection is by means of a USB cable.
 
 <img width="300"  src="https://github.com/user-attachments/assets/38e45ba9-abd1-4610-a2d1-7861c1418159" />
@@ -64,25 +65,23 @@ When building the Arduino into a small enclosure you might want to add and extra
 <img width="300"  src="https://github.com/user-attachments/assets/b4b0e0d9-66c4-4043-8b78-8d2a7726f5ef" />
 <img width="300"  src="https://github.com/user-attachments/assets/026540a4-2391-4acd-8c78-d64c4d319a53" />
 
-I used a momentary on switch with embedded led on top of the little enclosure.
+I use a momentary ON switch with embedded led on top of the little enclosure.
+
+The pins of the DIN connector are connected to the Arduino in the following manner:
 
 
-
-The pins of the connector are linked to the Arduino in the following manner:
-
-
-| Model II DIN connector | Model 12 DIN connector | Arduino Nano |
-|--|--|--|
-| 1  DATA | 1 DATA | D4 |
-| 2  BUSY* | 3 BUSY* | D2 |
-| 3  Gnd | 5 Gnd | Gnd |
-| 4  CLOCK | 2 CLOCK | D3 |
-| 5  +5V | 4 +5V | NOT USED |
+| Signal | Model II, 16 | Model 12, 16B, 6000 | Arduino Nano |
+|--|:---: |:---: |:---: |
+| DATA | 1 | 1 | D4 |
+| BUSY* | 2 | 3 | D2 |
+| Gnd | 3 | 5 | Gnd |
+| CLOCK | 4 | 2 | D3 |
+| +5V | 5 | 4 | NOT USED |
 
 Additional signals:
 
 | Function | Arduino Nano |
-| -- | -- |
+| -- | :---:  |
 | Same as built-in led | D13 |
 | Reset line | RST |
 
@@ -90,7 +89,7 @@ Additional signals:
 
 To work correctly, Putty emulation must be set to VT100+ mode. Otherwise the function keys do not work correctly.
 Local echo should be off.
-On a Windows PC, the OS might assign a differt serial port to the USB connection to the Arduino. On my system this is normaly port 6 or 7. The system manager will show which port is used.
+On a Windows PC, the OS might assign a different serial port to the USB connection to the Arduino. On my system this is normaly port 7, sometimes 6. The Arduino IDE will show the port. Alternatively the Windows system manager will also show which port is used.
 
 <img width="400" alt="Putty Settings" src="https://github.com/user-attachments/assets/599dc90e-d137-43fb-854f-a443946c9224" />
 
@@ -99,13 +98,16 @@ On a Windows PC, the OS might assign a differt serial port to the USB connection
 Detailed information on the keyboard interface can be found in the Model II technical reference manual. Essential is the timing relationship between the DATA and CLOCK signals.
 
 <img width="900"  alt="Keyboard timing diagram" src="https://github.com/user-attachments/assets/6c5b35c3-feb5-4467-a511-fb046971d69c" />
+
+Below the signal of the 00 character (HOLD or Ctrl-Space) as send by the Arduino.
+
 <img width="900" src="https://github.com/user-attachments/assets/6b22c48f-cf8b-4f8b-a609-2fec3f41ed4d" />
+
+
 
 The exact frequency of the CLOCK signal is not critical. The timing is determined by the value of the QuarterPulse.
 The signals are created in 4 parts where the signal level for the DataBit and ClockBit are set high or low. After sending the data the stop bit is transmitted.
-The current code gives pulse width of about 40 micro seconds.
-
-
+The current code gives pulse width of about 500 micro seconds. Transmission of 1 character takes about 10 ms. In reality that is fast enough.
 
 ## Notes
 
@@ -118,8 +120,8 @@ The current code gives pulse width of about 40 micro seconds.
 I was fascinated by the TRS-80 Model I as soon as it hit the streets in the Netherlands. As a student of the University of Utrecht I purchased the Model I as a 16K machine.  Printing listings was performed on a Teletype that was bought used from the Philips Nat Lab in Eindhoven. Very noisy but reliable.
 Later on my Model 1 was expanded to 64K and received a Dutch (home build) expansion system called the "Utrecht Bus", which used ECB format boards. Functions of the system were floppy disk, serial port and Eprom programmer.
 My collection of Tandy computers was then expanded with a Model 100 and a Model 4P which ran Newdos80 in 80x24 character mode.
-The bigger Tandy computers were not witin my reach. However, when I was able to purchase a working Model II in 2017 I did not hesitate. Meanwhile that system has been expanded with my **512K RAM board** (designed and build by me) for use by the Z80 and a Gotek drive for easy "floppy disk" use. 
-<br>The latest addition to my Model II is the **AM9511 Arithmetic Processing Unit (APU)** described here https://github.com/GreyZ80/AM9511_for_TRS-80_M2.
-<br>My Arduino experience started in 2014 with the design of an automatic car door unlock when approaching my Volvo 850 carrying a (known) Bluetooth device.
+The bigger Tandy computers were not witin my reach. However, when I was able to purchase a working Model II in 2017 I did not hesitate. Meanwhile that system has been expanded with my **512K RAM board** (designed and build by me) for use by the Z80 and a Gotek drive for easy "floppy disk" use.  
+The latest addition to my Model II is the **AM9511 Arithmetic Processing Unit (APU)** described here: https://github.com/GreyZ80/AM9511_for_TRS-80_M2.  
+My Arduino experience started in 2014 with the design of an automatic car door unlock when approaching my Volvo 850 carrying a (known) Bluetooth device.
 
-I can be contacted on Discord (as LaserVision) and I do visit the Tandy Assembly events in the USA.
+I can be contacted on Discord (as LaserVision) and I do visit the Tandy Assembly events in the USA. When you login to Github, you can also see my e-mail address.
