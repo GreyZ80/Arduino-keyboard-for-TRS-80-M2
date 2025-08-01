@@ -88,23 +88,24 @@ Additional signals:
 
 ## Putty settings
 
-<!-- SCREENSHOTS NEEDED -->
-
 To work correctly, Putty emulation must be set to VT100+ mode. Otherwise the function keys do not work correctly.
 Local echo should be off.
 On a Windows PC, the OS might assign a differt serial port to the USB connection to the Arduino. On my system this is normaly port 6 or 7. The system manager will show which port is used.
+
+<img width="400" alt="Putty Settings" src="https://github.com/user-attachments/assets/599dc90e-d137-43fb-854f-a443946c9224" />
 
 ## Background information
 
 Detailed information on the keyboard interface can be found in the Model II technical reference manual. Essential is the timing relationship between the DATA and CLOCK signals.
 
 <img width="900"  alt="Keyboard timing diagram" src="https://github.com/user-attachments/assets/6c5b35c3-feb5-4467-a511-fb046971d69c" />
+<img width="900" src="https://github.com/user-attachments/assets/6b22c48f-cf8b-4f8b-a609-2fec3f41ed4d" />
 
 The exact frequency of the CLOCK signal is not critical. The timing is determined by the value of the QuarterPulse.
 The signals are created in 4 parts where the signal level for the DataBit and ClockBit are set high or low. After sending the data the stop bit is transmitted.
 The current code gives pulse width of about 40 micro seconds.
 
-<!-- HERE SCREENSHOT of the signals --> 
+
 
 ## Notes
 
