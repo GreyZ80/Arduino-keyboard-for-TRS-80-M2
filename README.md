@@ -111,3 +111,13 @@ The current code gives pulse width of about 40 micro seconds.
 - During startup, the Tandy computer might detect one or two spurious keystrokes. Possibly caused by the fact that the Arduino is initialising. I have not been able to fix this.
 - It is not absolutely necessary to use Putty. Other software that can communicate with USB as serial port can work. However, many programs I found will only transmit the characters to the Arduino after hitting [enter]. That might not always be practical.
 
+## About me
+
+I was fascinated by the TRS-80 Model I as soon as it hit the streets in the Netherlands. As a student of the University of Utrecht I purchased the Model I as a 16K machine.  Printing listings was performed on a Teletype that was bought used from the Philips Nat Lab in Eindhoven. Very noisy but reliable.
+Later on my Model 1 was expanded to 64K and received a Dutch (home build) expansion system called the "Utrecht Bus", which used ECB format boards. Functions of the system were floppy disk, serial port and Eprom programmer.
+My collection of Tandy computers was then expanded with a Model 100 and a Model 4P which ran Newdos80 in 80x24 character mode.
+The bigger Tandy computers were not witin my reach. However, when I was able to purchase a working Model II in 2017 I did not hesitate. Meanwhile that system has been expanded with my **512K RAM board** (designed and build by me) for use by the Z80 and a Gotek drive for easy "floppy disk" use.
+The latest addition to the Model II is the AM9511 Arithmetic Processing Unit (APU) described here. 
+My Arduino experience started in 2014 with the design of an automatic car door unlock when approaching my Volvo 850 carrying a (known) Bluetooth device.
+
+I can be contacted on Discord (@LaserVision) and I do visit the Tandy Assembly events in the USA.
