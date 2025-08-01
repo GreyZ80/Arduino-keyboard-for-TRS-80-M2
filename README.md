@@ -99,15 +99,17 @@ Detailed information on the keyboard interface can be found in the Model II tech
 
 <img width="900"  alt="Keyboard timing diagram" src="https://github.com/user-attachments/assets/6c5b35c3-feb5-4467-a511-fb046971d69c" />
 
-Below the signal of the 00 character (HOLD or Ctrl-Space) as send by the Arduino.
+Below the signal of the 00 character (HOLD or Ctrl-Space) as send by the Arduino.  
+The DATA line (yellow) shows the data (8x low) followed by the stop bit. When not active this line is high (+5 Volt).     
+The CLOCK line (blue) shows the 8 clock bits. When not active this line is low (0 Volt).  
 
 <img width="900" src="https://github.com/user-attachments/assets/6b22c48f-cf8b-4f8b-a609-2fec3f41ed4d" />
 
 
 
-The exact frequency of the CLOCK signal is not critical. The timing is determined by the value of the QuarterPulse.
-The signals are created in 4 parts where the signal level for the DataBit and ClockBit are set high or low. After sending the data the stop bit is transmitted.
-The current code gives pulse width of about 500 micro seconds. Transmission of 1 character takes about 10 ms. In reality that is fast enough.
+The exact frequency of the CLOCK signal pulses is not critical. The timing is determined in the software by the value of the QuarterPulse.
+The signals are created in 4 parts for each bit where the signal level for the DataBit and ClockBit are set high or low. After sending the data the stop bit is transmitted.
+The current code gives bit pulse width of about 500 micro seconds. Transmission of 1 character takes about 10 ms. In reality that is fast enough (max. 100 characters per seconds).
 
 ## Notes
 
