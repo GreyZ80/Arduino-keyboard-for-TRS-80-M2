@@ -12,7 +12,7 @@
 //---------------------------------------------------------------
 //
 // Decisions:
-//  Busy check not implementd. Seems not needed for normal typing.
+//  Busy check not implemented. Seems not needed for normal typing.
 //  Signal is now used to detect M2 powered off/on.
 //
 //---------------------------------------------------------------
