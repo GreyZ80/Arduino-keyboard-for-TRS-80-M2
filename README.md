@@ -48,9 +48,9 @@ This allows checking of the workings with a Tandy computer connected.
 
 ## Hardware
 
-The smallest Arduino I could find was good enough (without additional circuitry). You only essentially need to add a 5 pin 180 degrees DIN female connector.
-Arduine used: Arduino Nano
-Processor: ATmega 168
+The smallest Arduino I could find was good enough (without additional circuitry). You only essentially need to add a 5 pin 180 degrees DIN female connector.\
+Arduine used: Arduino Nano\
+Processor: ATmega 168\
 These boards are available with different USB connectors. I have used mini USB for my unit.
 
 <img width="300" alt="click to enlarge" src="https://github.com/user-attachments/assets/7eec2c83-32c4-4d01-a011-8550477db702" />
