@@ -14,7 +14,7 @@
 
 The TRS-80 Model II keyboard is rather bulky and occupies a lot of desk space. Sometime you even do not have a proper working keyboard.
 This project describes a solution where you use Putty running on a Windows or Linux computer with an Arduino as keyboard replacement for a TRS-80 Model II.
-Connection is by means of a USB cable.
+Connection between PC and Srduino is by means of a standard USB cable.
 
 <img width="300"  src="https://github.com/user-attachments/assets/38e45ba9-abd1-4610-a2d1-7861c1418159" />
 
@@ -87,7 +87,8 @@ Additional signals:
 
 ## Putty settings
 
-To work correctly, Putty emulation must be set to VT100+ mode. Otherwise the function keys do not work correctly.
+Putty can de downloaded for free from https://www.putty.org/.  
+To work correctly, Putty emulation must be set to VT100+ mode. Otherwise the function keys do not work correctly, but stil good enough for quick testing.
 Local echo should be off.
 On a Windows PC, the OS might assign a different serial port to the USB connection to the Arduino. On my system this is normaly port 7, sometimes 6. The Arduino IDE will show the port. Alternatively the Windows system manager will also show which port is used.
 
